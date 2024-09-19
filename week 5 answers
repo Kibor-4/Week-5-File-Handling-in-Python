@@ -1,0 +1,32 @@
+def main():
+  try:
+    # File Creation
+    with open("my_file.txt", "w") as file:
+      file.write("This is the first line of text.\n")
+      file.write("Here's a line with a number: 42\n")
+      file.write("The final line for initial content.\n")
+      print("Successfully created 'my_file.txt' and wrote content.")
+
+    # File Reading and Display
+    with open("my_file.txt", "r") as file:
+      content = file.read()
+      print("\nContents of 'my_file.txt':")
+      print(content)
+
+    # File Appending
+    with open("my_file.txt", "a") as file:
+      file.write("\nAppending some additional lines:\n")
+      file.write("Line 4 with new content.\n")
+      file.write("Line 5 for further information.\n")
+      file.write("The final appended line.\n")
+      print("\nSuccessfully appended additional content to 'my_file.txt'.")
+
+  except FileNotFoundError:
+    print("Error: File not found. Please check the file path.")
+  except PermissionError:
+    print("Error: Insufficient permissions to access the file.")
+  finally:
+    print("\nFile handling operations completed.")
+
+if __name__ == "__main__":
+  main()
